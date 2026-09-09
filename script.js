@@ -1,15 +1,12 @@
-
-
-// Efeito "escrevendo código"
 const phrases = [
   'const dev = "Felipe Ferreira";',
   'const curso = "Análise e Desenvolvimento\n de Sistemas";'
 ];
 
-const TYPE_SPEED = 45;   // ms por caractere ao digitar
-const DELETE_SPEED = 25; // ms por caractere ao apagar
-const HOLD_TIME = 1400;  // pausa com a linha completa
-const GAP_TIME = 400;    // pausa com a linha vazia antes da próxima
+const TYPE_SPEED = 45;   
+const DELETE_SPEED = 25; 
+const HOLD_TIME = 1400;  
+const GAP_TIME = 400;    
 
 let phraseIndex = 0;
 let charIndex = 0;
@@ -45,27 +42,3 @@ function tick(){
 }
 tick();
 
-// Navegação entre telas 
-const homeScreen = document.getElementById('home-screen');
-const projectsScreen = document.getElementById('projects-screen');
-
-function showProjects(){
-  homeScreen.classList.remove('active');
-  projectsScreen.classList.add('active');
-  history.pushState(null, '', '#projetos');
-}
-function showHome(){
-  projectsScreen.classList.remove('active');
-  homeScreen.classList.add('active');
-  history.pushState(null, '', '#inicio');
-}
-
-document.getElementById('go-projects').addEventListener('click', showProjects);
-document.getElementById('go-home').addEventListener('click', showHome);
-
-window.addEventListener('popstate', () => {
-  if(location.hash === '#projetos') showProjects();
-  else showHome();
-});
-
-if(location.hash === '#projetos') showProjects();
